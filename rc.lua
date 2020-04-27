@@ -307,7 +307,7 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "w", function () awful.util.spawn( browser1 ) end,
         {description = browser1, group = "function keys"}),
     -- dmenu
-    awful.key({ modkey, "Shift"   }, "d",
+    awful.key({ modkey,}, "p",
     function ()
         awful.spawn(string.format("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn NotoMonoRegular:bold:pixelsize=14",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
@@ -360,7 +360,7 @@ globalkeys = my_table.join(
         {description = "pulseaudio control", group = "super"}),
     awful.key({ modkey }, "u", function () awful.screen.focused().mypromptbox:run() end,
           {description = "run prompt", group = "super"}),
-    awful.key({ modkey }, "x",  function () awful.util.spawn( "arcolinux-logout" ) end,
+    awful.key({ modkey, "Shift" }, "x",  function () awful.util.spawn( "arcolinux-logout" ) end,
       {description = "exit", group = "hotkeys"}),
     awful.key({ modkey }, "Escape", function () awful.util.spawn( "xkill" ) end,
         {description = "Kill proces", group = "hotkeys"}),
@@ -491,13 +491,13 @@ globalkeys = my_table.join(
              -- {description = "view  previous nonempty", group = "tag"}),
 
     -- Default client focus
-    awful.key({ altkey,           }, "j",
+    awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ altkey,           }, "k",
+    awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
@@ -505,25 +505,25 @@ globalkeys = my_table.join(
     ),
 
     -- By direction client focus
-    awful.key({ modkey }, "j",
+    awful.key({ altkey }, "j",
         function()
             awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus down", group = "client"}),
-    awful.key({ modkey }, "k",
+    awful.key({ altkey }, "k",
         function()
             awful.client.focus.global_bydirection("up")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus up", group = "client"}),
-    awful.key({ modkey }, "h",
+    awful.key({ altkey }, "h",
         function()
             awful.client.focus.global_bydirection("left")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus left", group = "client"}),
-    awful.key({ modkey }, "l",
+    awful.key({ altkey }, "l",
         function()
             awful.client.focus.global_bydirection("right")
             if client.focus then client.focus:raise() end
@@ -624,7 +624,7 @@ globalkeys = my_table.join(
               {description = terminal, group = "super"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "x", awesome.quit,
+    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -793,7 +793,7 @@ clientkeys = my_table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
+    awful.key({ modkey,}, "x",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
     awful.key({ modkey, },           "q",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
