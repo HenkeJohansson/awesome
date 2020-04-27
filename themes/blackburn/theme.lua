@@ -184,7 +184,7 @@ theme.volume = lain.widget.alsa({
 
 -- Weather
 theme.weather = lain.widget.weather({
-    city_id = 2803138, -- placeholder (Belgium)
+    city_id = 2692969, -- Malmö
     settings = function()
         units = math.floor(weather_now["main"]["temp"])
         widget:set_markup(" " .. units .. " ")
