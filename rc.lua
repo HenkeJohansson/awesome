@@ -321,15 +321,15 @@ globalkeys = my_table.join(
 
 
     -- super + ... function keys
-    awful.key({ modkey }, "F1", function () awful.util.spawn( browser1 ) end,
+    awful.key({ modkey }, "F1", function () awful.util.spawn( "franz" ) end,
         {description = browser1, group = "function keys"}),
-    awful.key({ modkey }, "F2", function () awful.util.spawn( editorgui ) end,
+    awful.key({ modkey }, "F2", function () awful.util.spawn( "slack" ) end,
         {description = editorgui , group = "function keys" }),
-    awful.key({ modkey }, "F3", function () awful.util.spawn( "inkscape" ) end,
+    awful.key({ modkey }, "F3", function () awful.util.spawn( "teams" ) end,
         {description = "inkscape" ,wgroup = "function keys" }),
-    awful.key({ modkey }, "F4", function () awful.util.spawn( "gimp" ) end,
+    awful.key({ modkey }, "F4", function () awful.util.spawn( "spotify" ) end,
         {description = "gimp" , group = "function keys" }),
-    awful.key({ modkey }, "F5", function () awful.util.spawn( "meld" ) end,
+    awful.key({ modkey }, "F5", function () awful.util.spawn( filemanager ) end,
         {description = "meld" , group = "function keys" }),
     awful.key({ modkey }, "F6", function () awful.util.spawn( "vlc --video-on-top" ) end,
         {description = "vlc" , group = "function keys" }),
