@@ -1,14 +1,9 @@
 --[[
-
      Awesome WM configuration template
      https://github.com/awesomeWM
-
      Freedesktop : https://github.com/lcpz/awesome-freedesktop
-
      Copycats themes : https://github.com/lcpz/awesome-copycats
-
      lain : https://github.com/lcpz/lain
-
 --]]
 
 -- {{{ Required libraries
@@ -43,7 +38,22 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
 
+-- add my scripts folder to the PATH so I can run my scripts from the run prompt
+local posix = require("posix")
+local user = posix.getenv("USER")
+posix.setenv("PATH", posix.getenv("PATH") .. ":/home/" .. user .. "/scripts")
 
+function os.capture(cmd, raw)
+    local f = assert(io.popen(cmd, 'r'))
+    local s = assert(f:read('*a'))
+    f:close()
+    if raw then return s end
+    s = string.gsub(s, '^%s+', '')
+    s = string.gsub(s, '%s+$', '')
+    s = string.gsub(s, '[\n\r]+', ' ')
+    return s
+end
+host = os.capture("hostname -s", false)
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -120,7 +130,7 @@ local browser1          = "chromium -no-default-browser-check"
 local browser2          = "firefox"
 local browser3          = "vivaldi-stable"
 local editor            = os.getenv("EDITOR") or "nano"
-local editorgui         = "atom"
+local editorgui         = "code-oss"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
