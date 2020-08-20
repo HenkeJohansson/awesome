@@ -369,6 +369,8 @@ globalkeys = my_table.join(
 
 
     -- ctrl+alt +  ...
+    awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn('slock') end,
+    {description = "Lock screen", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "w", function() awful.util.spawn( "arcolinux-welcome-app" ) end,
         {description = "ArcoLinux Welcome App", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "e", function() awful.util.spawn( "arcolinux-tweak-tool" ) end,
@@ -391,8 +393,8 @@ globalkeys = my_table.join(
         {description = nitrogen, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "k", function() awful.util.spawn( "arcolinux-logout" ) end,
         {description = scrlocker, group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
-        {description = scrlocker, group = "alt+ctrl"}),
+    -- awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
+    --     {description = scrlocker, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "o", function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/picom-toggle.sh") end,
         {description = "Picom toggle", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "s", function() awful.util.spawn( mediaplayer ) end,
