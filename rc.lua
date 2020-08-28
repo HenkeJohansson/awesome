@@ -129,7 +129,7 @@ local modkey1      = "Control"
 local browser1          = "chromium -no-default-browser-check"
 local browser2          = "firefox"
 local browser3          = "vivaldi-stable"
-local editor            = os.getenv("EDITOR") or "nano"
+local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code-oss"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
@@ -596,7 +596,9 @@ globalkeys = my_table.join(
     awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
     end, {description = "Toggle systray visibility", group = "awesome"}),
 
-
+    awful.key({        }, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
+    awful.key({        }, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end),
+    awful.key({        }, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end),
 
     -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
