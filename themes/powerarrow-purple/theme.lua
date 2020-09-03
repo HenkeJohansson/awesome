@@ -20,14 +20,14 @@ theme.wallpaper                                 = theme.dir .. "/wallpaper.jpg"
 theme.font                                      = "Noto Sans Regular 11"
 theme.taglist_font                              = "Noto Sans Regular 14"
 theme.fg_normal                                 = "#FEFEFE"
-theme.fg_focus                                  = "#473B70"
+theme.fg_focus                                  = "#E43D73"
 theme.fg_urgent                                 = "#b74822"
-theme.bg_normal                                 = "#292D3E"
-theme.bg_focus                                  = "#1E2320"
+theme.bg_normal                                 = "#2C2444"
+theme.bg_focus                                  = "#473B70"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#E43D73"
-theme.tasklist_bg_focus                         = "#000000"
-theme.tasklist_fg_focus                         = "#473B70"
+theme.tasklist_bg_focus                         = "#2C2444"
+theme.tasklist_fg_focus                         = "#E43D73"
 theme.border_width                              = dpi(2)
 theme.border_normal                             = "#473B70"
 theme.border_focus                              = "#FEFEFE"
@@ -368,7 +368,7 @@ function theme.at_screen_connect(s)
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
 
     -- Create a tasklist widget
-    --s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(22), bg = theme.bg_normal, fg = theme.fg_normal })
@@ -383,7 +383,9 @@ function theme.at_screen_connect(s)
             s.mypromptbox,
             spr,
         },
-        s.mytasklist, -- Middle widget
+        { -- Middle widgets
+            layout = wibox.layout.fixed.horizontal,
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
@@ -422,6 +424,22 @@ function theme.at_screen_connect(s)
             wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(8)), "#2C2444"),
             arrow("#2C2444", "alpha"),
             --]]
+            s.mylayoutbox,
+        },
+    }
+
+    -- Create the bottom wibox
+    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = dpi(20), bg = theme.bg_normal, fg = theme.fg_normal })
+
+    -- Add widgets to the bottom wibox
+    s.mybottomwibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
             s.mylayoutbox,
         },
     }
