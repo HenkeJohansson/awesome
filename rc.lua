@@ -596,9 +596,9 @@ globalkeys = my_table.join(
     awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
     end, {description = "Toggle systray visibility", group = "awesome"}),
 
-    awful.key({        }, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause", false) end),
-    awful.key({        }, "XF86AudioPrev", function() awful.util.spawn("playerctl previous", false) end),
-    awful.key({        }, "XF86AudioNext", function() awful.util.spawn("playerctl next", false) end),
+    awful.key({        }, "XF86AudioPlay", function() awful.util.spawn("playerctl -p spotify play-pause", false) end),
+    awful.key({        }, "XF86AudioPrev", function() awful.util.spawn("playerctl -p spotify previous", false) end),
+    awful.key({        }, "XF86AudioNext", function() awful.util.spawn("playerctl -p spotify next", false) end),
 
     -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
