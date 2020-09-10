@@ -110,11 +110,20 @@ local themes = {
     "powerarrow",      		-- 2
     "powerarrow-blue",	 	-- 3
     "powerarrow-purple",	-- 4
-    "blackburn",		    -- 5
+    "powerarrow-violet",	-- 5
+    "blackburn",		    -- 6
 }
 
+local theme = 4
+
+if host == "unstable" then
+    theme = 4
+else
+    theme = 5
+end
+
 -- choose your theme here
-local chosen_theme = themes[4]
+local chosen_theme = themes[theme]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
