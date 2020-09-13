@@ -53,7 +53,7 @@ function os.capture(cmd, raw)
     s = string.gsub(s, '[\n\r]+', ' ')
     return s
 end
-host = os.capture("hostname -s", false)
+host = os.capture("uname -n", false)
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -118,7 +118,7 @@ local theme = 4
 
 if host == "unstable" then
     theme = 4
-else
+elseif host == "workpc" then
     theme = 5
 end
 
@@ -149,6 +149,7 @@ local virtualmachine    = "virtualbox"
 -- awesome variables
 awful.util.terminal = terminal
 awful.util.tagnames = {  "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒", "➓" }
+-- awful.util.tagnames = {  "", "", "", "➍", "", "➏", "➐", "➑", "➒", "➓" }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
 --awful.util.tagnames = { "www", "edit", "gimp", "inkscape", "music" }
