@@ -371,7 +371,12 @@ globalkeys = my_table.join(
         {description = "Kill proces", group = "hotkeys"}),
 
     -- super + shift + ...
-    awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
+    awful.key({ modkey,  "Shift"   }, "Return"        , function()
+        awful.spawn(terminal,
+            { floating = true,
+              tag = mouse.screen.selected_tag,
+              placement = awful.placement.centered })
+    end),
 
 
     -- ctrl + shift + ...
