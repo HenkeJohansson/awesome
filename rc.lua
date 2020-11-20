@@ -372,10 +372,10 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey,  "Shift"   }, "Return"        , function()
-        awful.spawn(terminal,
+        awful.spawn('xfce4-terminal --color-bg="rgba(44,36,68,0.5)" --geometry 160x40',
             { floating = true,
-              tag = mouse.screen.selected_tag,
-              placement = awful.placement.centered })
+                tag = mouse.screen.selected_tag,
+                placement = awful.placement.centered })
     end),
 
 
@@ -575,7 +575,7 @@ globalkeys = my_table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey}, "§", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey }, "§", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
