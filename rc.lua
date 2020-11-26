@@ -372,7 +372,7 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey,  "Shift"   }, "Return"        , function()
-        awful.spawn('xfce4-terminal --color-bg="rgba(44,36,68,0.5)" --geometry 160x40',
+        awful.spawn('xfce4-terminal --color-bg="rgba(44,36,68,0.8)" --geometry 160x40',
             { floating = true,
                 tag = mouse.screen.selected_tag,
                 placement = awful.placement.centered })
