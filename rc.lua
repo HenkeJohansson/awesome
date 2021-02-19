@@ -116,7 +116,7 @@ local themes = {
 
 local theme = 4
 
-if host == "unstable" then
+if host == "nuc10" then
     theme = 4
 elseif host == "workpc" then
     theme = 4
@@ -143,7 +143,7 @@ local editorgui         = "code-oss"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
-local terminal          = "termite"
+local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
